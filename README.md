@@ -120,30 +120,27 @@ ir aos ajustes do aparelho.
 
 ## Decisões técnicas
 
-Cite o commit real de cada decisão (`git log --oneline`).
-
 1. **Uma instância de Axios com interceptors** (`src/services/http.ts`) — headers fixos, Bearer
-   injetado/removido a cada request, erros normalizados em `AppError`. Commit: `PREENCHER` ("feat: camada de API…").
-2. **Token no `expo-secure-store`** (`src/services/session.ts`). Commit: `PREENCHER` ("feat: camada de API…").
+   injetado/removido a cada request, erros normalizados em `AppError`. Commit: `7210a05`.
+2. **Token no `expo-secure-store`** (`src/services/session.ts`). Commit: `7210a05`.
 3. **401 derruba a sessão só nas rotas de comprador** — o catálogo responde 200 mesmo com token
-   adulterado, então a validação é `GET /auth/me`. Commit: `PREENCHER` ("feat: camada de API…").
+   adulterado, então a validação é `GET /auth/me`. Commit: `7210a05`.
 4. **Um `QueryClient` e uma chave de cache por comprador** (`src/query/AppQueryProvider.tsx`) — a lista
-   de favoritos do usuário anterior nunca vaza. Commit: `PREENCHER` ("feat: autenticação e cache…").
+   de favoritos do usuário anterior nunca vaza. Commit: `ffb8a64`.
 5. **Sem atualização otimista em carrinho e pedido**: dinheiro e estoque não se adivinham. Commit:
-   `PREENCHER` ("feat: vitrine, favoritos, sacola e pedidos").
+   `da3dfbc`.
 6. **A média da avaliação vem do produto** (`ratingOf` em `src/utils/format.ts`, campo `rating` com
    `average` e `count`). A lista de avaliações é só a lista; **nada é calculado no app**. Commit:
-   `PREENCHER` ("feat: avaliações com foto…").
+   `c89caeb`.
 7. **`can-review` antes do formulário** (`useCanReview`): cada motivo devolvido pela API ganha um texto
-   próprio (pedido não pago, já avaliou, não comprou, genérico). Commit: `PREENCHER` ("feat: avaliações com foto…").
+   próprio (pedido não pago, já avaliou, não comprou, genérico). Commit: `c89caeb`.
 8. **Upload multipart sem `Content-Type` fixo** (`uploadPhoto` em `reviewService.ts`): o React Native
-   gera o boundary. A avaliação referencia o **`mediaId`**, não a URL. Commit: `PREENCHER` ("feat: avaliações com foto…").
+   gera o boundary. A avaliação referencia o **`mediaId`**, não a URL. Commit: `c89caeb`.
 9. **Depois de avaliar, invalidamos** `reviews`, `product` e `can-review` (`useCreateReview`): lista e
-   média atualizam sem sair da tela. Commit: `PREENCHER` ("feat: avaliações com foto…").
+   média atualizam sem sair da tela. Commit: `c89caeb`.
 10. **Retirada:** a API só ordena se receber `latitude` e `longitude`; sem posição a ordem é a de
     cadastro (esperado, não é bug). A escolha vive em `PickupSelectionProvider` e vai em
-    `POST /orders/checkout` como `pickupPointId`; o pedido criado mostra o ponto. Commit: `PREENCHER`
-    ("feat: pontos de retirada…").
+    `POST /orders/checkout` como `pickupPointId`; o pedido criado mostra o ponto. Commit: `74f1f5e`.
 
 ## Decisões de produto
 
@@ -209,7 +206,7 @@ usam `ReduceMotion.Never`, de propósito.
 3. **Causa:** o app esperava `options` como `{ "Largura": "2.1" }`, mas o detalhe do produto devolve cada
    opção como objeto, e `join` de objetos vira `[object Object]`.
 4. **O que mudou (commit):** `variantLabel` passou a ler a opção como texto ou como objeto (`value`,
-   `label`, `name`) e o tipo `options` virou `unknown`. Commit: `PREENCHER`.
+   `label`, `name`) e o tipo `options` virou `unknown`. Commit: `7210a05` (`src/utils/format.ts`).
 
 ## Limitações conhecidas
 
