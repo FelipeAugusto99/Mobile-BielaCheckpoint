@@ -1,0 +1,55 @@
+{
+  "expo": {
+    "name": "Biela",
+    "slug": "biela-pecas-bike",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "biela",
+    "userInterfaceStyle": "light",
+    "icon": "./assets/icon.png",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "br.com.biela.app"
+    },
+    "android": {
+      "package": "br.com.biela.app",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0F5C47"
+      }
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      "expo-font",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "A Biela usa sua localização só para mostrar qual ponto de retirada fica mais perto de você."
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "A Biela acessa suas fotos só para anexar à avaliação de uma peça."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#0F5C47"
+        }
+      ],
+      "expo-image",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash.png",
+          "backgroundColor": "#0F5C47",
+          "imageWidth": 200
+        }
+      ],
+      "expo-status-bar"
+    ]
+  }
+}
